@@ -30,15 +30,14 @@ body {
 
 header {
     background-color: #23232b;
-    padding: 2rem 0;
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav {
     max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .logo {
@@ -61,7 +60,7 @@ nav {
     text-decoration: none;
     color: #fff;
     display: block;
-    padding: 10px 1.5rem;
+    padding: 10px 1rem;
     transition: all 0.4s;
 }
 
@@ -100,9 +99,40 @@ nav {
     display: block;
 }
 
-/* @media (max-width: 500px){
-    .menu{ 
+@media (max-width: 770px) {
+    header {
+        position: relative;
+        height: 100px;
+    }
+
+    nav {
         display: flex;
         flex-direction: column;
     }
-} */
+
+    nav .menu {
+        position: absolute;
+        background-color: #23232b;
+        right: 0;
+        top: 99%;
+        left: 60%;
+        height: 1000%;
+    }
+
+    li {
+        border-top: 1px solid hsl(0, 1%, 28%);
+        width: 100%;
+    }
+
+    .submenu {
+        position: relative;
+        left: 0;
+        background-color: rgb(97, 95, 95);
+    }
+
+    .submenu-2 {
+        position: relative;
+        background-color: rgb(136, 132, 132);
+        left: 0;
+    }
+}
