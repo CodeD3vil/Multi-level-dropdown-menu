@@ -3,6 +3,7 @@
 html,
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 *,
@@ -24,6 +25,8 @@ body {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     color: #666;
+    margin: 0 auto;
+    max-width: 1600px;
 }
 
 /* NAVIGATION */
@@ -40,10 +43,27 @@ nav {
     max-width: 1200px;
 }
 
+/* a helper class that hides element from users but allows the screen readers to see it */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 .logo {
     font-size: 1.7rem;
     color: #fff;
     font-weight: 700;
+}
+
+/* makes hamburger menu invisible*/
+.mobile-toggle {
+    display: none;
 }
 
 .menu > li,
@@ -85,7 +105,7 @@ nav {
     background-color: #23232b;
     width: 110%;
     position: absolute;
-    left: 100%;
+    right: 100%;
     top: 0;
     display: none;
 }
@@ -99,15 +119,30 @@ nav {
     display: block;
 }
 
+/* this section is there to test the switching off the mobile menu when clicking outside the menu */
+.section {
+    height: 1000px;
+    background-color: rgb(204, 198, 198);
+}
+
+/* MEDIA QUERY MOBILE MENU */
+
 @media (max-width: 770px) {
     header {
+        width: 100%;
         position: relative;
         height: 100px;
+        padding: 0 2rem;
     }
 
     nav {
+        padding: 1rem;
         display: flex;
         flex-direction: column;
+    }
+
+    .logo {
+        font-size: 1.3rem;
     }
 
     nav .menu {
@@ -115,8 +150,37 @@ nav {
         background-color: #23232b;
         right: 0;
         top: 99%;
-        left: 60%;
+        left: 50%;
         height: 1000%;
+        transform: translateX(100%);
+        transition: all 0.4s ease-out;
+    }
+
+    /* if the data-visible attribute is true the menu will become visible by moving into the view */
+    .menu[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    /* hamburger menu button */
+    .mobile-toggle {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        z-index: 100;
+        width: 0;
+        top: 1.4rem;
+        right: 4rem;
+        border: none;
+        background-color: transparent;
+    }
+
+    /* styling and positioning of the svg element */
+    .hamburger-button {
+        fill: whitesmoke;
+        width: 22px;
+        position: absolute;
+        left: 0.8rem;
+        top: 1rem;
     }
 
     li {
@@ -127,12 +191,12 @@ nav {
     .submenu {
         position: relative;
         left: 0;
-        background-color: rgb(97, 95, 95);
+        background-color: rgb(51, 47, 47);
     }
 
     .submenu-2 {
         position: relative;
-        background-color: rgb(136, 132, 132);
+        background-color: rgb(55, 54, 63);
         left: 0;
     }
 }
