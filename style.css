@@ -3,6 +3,7 @@
 html,
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 *,
@@ -24,27 +25,45 @@ body {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     color: #666;
+    margin: 0 auto;
+    max-width: 1600px;
 }
 
 /* NAVIGATION */
 
 header {
     background-color: #23232b;
-    padding: 2rem 0;
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav {
     max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+/* a helper class that hides element from users but allows the screen readers to see it */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 .logo {
     font-size: 1.7rem;
     color: #fff;
     font-weight: 700;
+}
+
+/* makes hamburger menu invisible*/
+.mobile-toggle {
+    display: none;
 }
 
 .menu > li,
@@ -61,7 +80,7 @@ nav {
     text-decoration: none;
     color: #fff;
     display: block;
-    padding: 10px 1.5rem;
+    padding: 10px 1rem;
     transition: all 0.4s;
 }
 
@@ -70,39 +89,145 @@ nav {
     background-color: #f34949;
 }
 
-/* SUBMENU LEVEL 1 STYLE */
+/* SUBMENUS STYLE */
 
-.submenu {
+.submenu__skills {
     position: absolute;
-    width: 120%;
+    width: 200%;
     background-color: #23232b;
     left: 0;
     display: none;
 }
 
-/* SUBMENU LEVEL 2 STYLE */
+.submenu__projects {
+    position: absolute;
+    width: 150%;
+    background-color: #23232b;
+    left: 0;
+    display: none;
+}
 
-.submenu-2 {
+/* SUBMENU SKILLS STYLE */
+
+.submenu__skills-front,
+.submenu__skills-back {
     background-color: #23232b;
     width: 110%;
     position: absolute;
-    left: 100%;
+    right: 100%;
     top: 0;
     display: none;
 }
 
 /* SHOW MENUS */
-.menu li:hover > .submenu {
+.menu li:hover > .submenu__skills {
     display: block;
 }
 
-.menu li:hover > .submenu-2 {
+.menu li:hover > .submenu__projects {
     display: block;
 }
 
-/* @media (max-width: 500px){
-    .menu{ 
+.menu li:hover > .submenu__skills-front {
+    display: block;
+}
+
+.menu li:hover > .submenu__skills-back {
+    display: block;
+}
+
+/* this section is there to test the switching off the mobile menu when clicking outside the menu */
+.section {
+    height: 1000px;
+    background-color: rgb(204, 198, 198);
+}
+
+/* MEDIA QUERY MOBILE MENU */
+
+@media (max-width: 770px) {
+    header {
+        width: 100%;
+        position: relative;
+        height: 100px;
+        padding: 0 2rem;
+    }
+
+    nav {
+        padding: 1rem;
         display: flex;
         flex-direction: column;
     }
-} */
+
+    .menu a:hover {
+        color: #fff;
+        background-color: transparent;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    nav .menu {
+        position: absolute;
+        background-color: #23232b;
+        right: 0;
+        top: 99%;
+        left: 50%;
+        height: 1000%;
+        transform: translateX(100%);
+        transition: all 0.4s ease-out;
+    }
+
+    /* if the data-visible attribute is true the menu will become visible by moving into the view */
+    .menu[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    /* hamburger menu button */
+    .mobile-toggle {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        z-index: 100;
+        width: 0;
+        top: 1.4rem;
+        right: 4rem;
+        border: none;
+        background-color: transparent;
+    }
+
+    /* styling and positioning of the svg element */
+    .hamburger-button {
+        fill: whitesmoke;
+        width: 22px;
+        position: absolute;
+        left: 0.8rem;
+        top: 1rem;
+    }
+
+    .has-submenu::after {
+        padding-left: 0.5rem;
+        color: #ecf0f1;
+        content: "▾";
+        z-index: 10;
+    }
+
+    li {
+        border-top: 1px solid hsl(0, 1%, 28%);
+        width: 100%;
+    }
+
+    .submenu__skills,
+    .submenu__projects {
+        position: relative;
+        left: 0;
+        background-color: rgb(55, 54, 63);
+    }
+
+    .submenu__skills-front,
+    .submenu__skills-back {
+        position: relative;
+        background-color: rgb(55, 54, 63);
+        left: 0;
+    }
+}
