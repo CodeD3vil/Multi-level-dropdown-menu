@@ -91,9 +91,9 @@ nav {
 
 /* SUBMENU LEVEL 1 STYLE */
 
-.submenu {
+.submenu__skills {
     position: absolute;
-    width: 120%;
+    width: 150%;
     background-color: #23232b;
     left: 0;
     display: none;
@@ -101,7 +101,8 @@ nav {
 
 /* SUBMENU LEVEL 2 STYLE */
 
-.submenu-2 {
+.submenu__skills-front,
+.submenu__skills-back {
     background-color: #23232b;
     width: 110%;
     position: absolute;
@@ -111,11 +112,15 @@ nav {
 }
 
 /* SHOW MENUS */
-.menu li:hover > .submenu {
+.menu li:hover > .submenu__skills {
     display: block;
 }
 
-.menu li:hover > .submenu-2 {
+.menu li:hover > .submenu__skills-front {
+    display: block;
+}
+
+.menu li:hover > .submenu__skills-back {
     display: block;
 }
 
@@ -188,13 +193,13 @@ nav {
         width: 100%;
     }
 
-    .submenu {
+    .submenu__skills {
         position: relative;
         left: 0;
         background-color: rgb(51, 47, 47);
     }
 
-    .submenu-2 {
+    .submenu__skills-front {
         position: relative;
         background-color: rgb(55, 54, 63);
         left: 0;
