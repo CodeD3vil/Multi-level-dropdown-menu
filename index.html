@@ -29,15 +29,30 @@
                 </button>
                 <ul data-visible="false" class="menu">
                     <li class="header-nav-links"><a href="#">About</a></li>
-                    <li class="header-nav-links"><a href="#">Projects</a></li>
+                    <li>
+                        <a class="has-submenu" href="#">Projects</a>
+                        <!-- SUBMENU -->
+                        <ul class="submenu__projects">
+                            <li class="header-nav-links">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="header-nav-links">
+                                <a href="#">Project 2</a>
+                            </li>
+                            <li class="header-nav-links">
+                                <a href="#">Project 3</a>
+                            </li>
+                        </ul>
+                        <!-- SUBMENU -->
+                    </li>
 
                     <li>
-                        <a href="#">Skills</a>
+                        <a class="has-submenu" href="#">Skills</a>
                         <!-- SUBMENU 1-->
                         <ul class="submenu__skills">
                             <li>
-                                <a href="#">FrontEnd</a>
-                                <!-- SUBMENU 2 -->
+                                <a class="has-submenu" href="#">FrontEnd</a>
+                                <!-- SUBMENU -->
                                 <ul class="submenu__skills-front">
                                     <li class="header-nav-links">
                                         <a href="#">HTML</a>
@@ -49,11 +64,11 @@
                                         <a href="#">JavaScript</a>
                                     </li>
                                 </ul>
-                                <!-- SUBMENU 2 -->
+                                <!-- SUBMENU -->
                             </li>
                             <li>
-                                <a href="#">BackEnd</a>
-                                <!-- SUBMENU 3 -->
+                                <a class="has-submenu" href="#">BackEnd</a>
+                                <!-- SUBMENU -->
                                 <ul class="submenu__skills-back">
                                     <li class="header-nav-links">
                                         <a href="#">Node JS</a>
@@ -65,7 +80,7 @@
                                         <a href="#">Python</a>
                                     </li>
                                 </ul>
-                                <!-- SUBMENU 3 -->
+                                <!-- SUBMENU -->
                             </li>
                         </ul>
                         <!-- SUBMENU 1-->

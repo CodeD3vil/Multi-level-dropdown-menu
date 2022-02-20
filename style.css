@@ -89,9 +89,17 @@ nav {
     background-color: #f34949;
 }
 
-/* SUBMENU LEVEL 1 STYLE */
+/* SUBMENUS STYLE */
 
 .submenu__skills {
+    position: absolute;
+    width: 200%;
+    background-color: #23232b;
+    left: 0;
+    display: none;
+}
+
+.submenu__projects {
     position: absolute;
     width: 150%;
     background-color: #23232b;
@@ -99,7 +107,7 @@ nav {
     display: none;
 }
 
-/* SUBMENU LEVEL 2 STYLE */
+/* SUBMENU SKILLS STYLE */
 
 .submenu__skills-front,
 .submenu__skills-back {
@@ -113,6 +121,10 @@ nav {
 
 /* SHOW MENUS */
 .menu li:hover > .submenu__skills {
+    display: block;
+}
+
+.menu li:hover > .submenu__projects {
     display: block;
 }
 
@@ -144,6 +156,11 @@ nav {
         padding: 1rem;
         display: flex;
         flex-direction: column;
+    }
+
+    .menu a:hover {
+        color: #fff;
+        background-color: transparent;
     }
 
     .logo {
@@ -188,18 +205,27 @@ nav {
         top: 1rem;
     }
 
+    .has-submenu::after {
+        padding-left: 0.5rem;
+        color: #ecf0f1;
+        content: "▾";
+        z-index: 10;
+    }
+
     li {
         border-top: 1px solid hsl(0, 1%, 28%);
         width: 100%;
     }
 
-    .submenu__skills {
+    .submenu__skills,
+    .submenu__projects {
         position: relative;
         left: 0;
-        background-color: rgb(51, 47, 47);
+        background-color: rgb(55, 54, 63);
     }
 
-    .submenu__skills-front {
+    .submenu__skills-front,
+    .submenu__skills-back {
         position: relative;
         background-color: rgb(55, 54, 63);
         left: 0;
