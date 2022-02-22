@@ -193,11 +193,12 @@ nav {
     }
 
     nav .menu {
+        width: 100%;
         position: absolute;
         background-color: var(--dark-grey-color);
         right: 0;
         top: 99%;
-        left: 50%;
+        left: 0%;
         height: 1000%;
         transform: translateX(100%);
         transition: all 0.4s ease-out;
@@ -205,7 +206,7 @@ nav {
 
     /* if the data-visible attribute is true the menu will become visible by moving into the view */
     .menu[data-visible="true"] {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     /* hamburger menu button */
@@ -253,6 +254,21 @@ nav {
 
     li {
         width: 100%;
+    }
+
+    a {
+        text-align: center;
+    }
+
+    .submenu__skills a {
+        position: relative;
+        left: -27.2%;
+        text-align: center;
+    }
+    .submenu__projects a {
+        position: relative;
+        left: -16.5%;
+        text-align: center;
     }
 
     .submenu__skills,
