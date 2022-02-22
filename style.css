@@ -31,7 +31,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     font-family: "Open Sans", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0 auto;
     max-width: 1600px;
 }
@@ -129,24 +129,42 @@ nav {
 /* SHOW MENUS */
 .menu li:hover > .submenu__skills {
     display: block;
+    animation: dropdownAnimate 0.5s ease-out;
 }
 
 .menu li:hover > .submenu__projects {
     display: block;
+    animation: dropdownAnimate 0.5s ease-out;
 }
 
 .menu li:hover > .submenu__skills-front {
     display: block;
+    animation: dropdownAnimate 0.5s ease-out;
 }
 
 .menu li:hover > .submenu__skills-back {
     display: block;
+    animation: dropdownAnimate 0.5s ease-out;
 }
 
 /* this section is there to test the switching off the mobile menu when clicking outside the menu */
 .section {
     height: 1000px;
     background-color: var(--burger-menu-hover-color);
+}
+
+/* DROPDOWN MENU ANIMATION */
+
+@keyframes dropdownAnimate {
+    0% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
 /* MEDIA QUERY MOBILE MENU */
@@ -251,5 +269,25 @@ nav {
         position: relative;
         background-color: var(--dark-grey-color);
         left: 0;
+    }
+
+    .menu li:hover > .submenu__skills {
+        display: block;
+        animation: none;
+    }
+
+    .menu li:hover > .submenu__projects {
+        display: block;
+        animation: none;
+    }
+
+    .menu li:hover > .submenu__skills-front {
+        display: block;
+        animation: none;
+    }
+
+    .menu li:hover > .submenu__skills-back {
+        display: block;
+        animation: none;
     }
 }
