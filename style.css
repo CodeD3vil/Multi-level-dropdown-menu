@@ -1,4 +1,12 @@
 /* GLOBAL STYLES */
+:root {
+    --background-color: #ecf0f1;
+    --dark-grey-color: #23232b;
+    --text-color: #fff;
+    --link-hover-color: #f34949;
+    --burger-menu-hover-color: #cccbcb;
+    --mobile-menu-links-border-color: rgba(111, 111, 112, 0.281);
+}
 
 html,
 body {
@@ -21,10 +29,9 @@ ul {
 body {
     font-size: 1rem;
     line-height: 1.6;
-    background-color: #ecf0f1;
+    background-color: var(--background-color);
     font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    color: #666;
+    font-weight: 300;
     margin: 0 auto;
     max-width: 1600px;
 }
@@ -32,7 +39,7 @@ body {
 /* NAVIGATION */
 
 header {
-    background-color: #23232b;
+    background-color: var(--dark-grey-color);
     padding: 2rem 5rem;
     display: flex;
     justify-content: space-between;
@@ -57,7 +64,7 @@ nav {
 
 .logo {
     font-size: 1.7rem;
-    color: #fff;
+    color: var(--text-color);
     font-weight: 700;
 }
 
@@ -71,22 +78,22 @@ nav {
     display: inline-block;
 }
 
-/* all li elements are a refernce for positioning */
+/* all li elements are a reference for positioning */
 .menu li {
     position: relative;
 }
 
 .menu a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
     display: block;
     padding: 10px 1rem;
     transition: all 0.4s;
 }
 
 .menu a:hover {
-    color: #fff;
-    background-color: #f34949;
+    color: var(--text-color);
+    background-color: var(--link-hover-color);
 }
 
 /* SUBMENUS STYLE */
@@ -94,7 +101,7 @@ nav {
 .submenu__skills {
     position: absolute;
     width: 200%;
-    background-color: #23232b;
+    background-color: var(--dark-grey-color);
     left: 0;
     display: none;
 }
@@ -102,7 +109,7 @@ nav {
 .submenu__projects {
     position: absolute;
     width: 150%;
-    background-color: #23232b;
+    background-color: var(--dark-grey-color);
     left: 0;
     display: none;
 }
@@ -111,7 +118,7 @@ nav {
 
 .submenu__skills-front,
 .submenu__skills-back {
-    background-color: #23232b;
+    background-color: var(--dark-grey-color);
     width: 110%;
     position: absolute;
     right: 100%;
@@ -139,7 +146,7 @@ nav {
 /* this section is there to test the switching off the mobile menu when clicking outside the menu */
 .section {
     height: 1000px;
-    background-color: rgb(204, 198, 198);
+    background-color: var(--burger-menu-hover-color);
 }
 
 /* MEDIA QUERY MOBILE MENU */
@@ -159,8 +166,8 @@ nav {
     }
 
     .menu a:hover {
-        color: #fff;
-        background-color: transparent;
+        color: var(--text-color);
+        background-color: var(--link-hover-color);
     }
 
     .logo {
@@ -169,7 +176,7 @@ nav {
 
     nav .menu {
         position: absolute;
-        background-color: #23232b;
+        background-color: var(--dark-grey-color);
         right: 0;
         top: 99%;
         left: 50%;
@@ -198,36 +205,51 @@ nav {
 
     /* styling and positioning of the svg element */
     .hamburger-button {
-        fill: whitesmoke;
+        fill: var(--text-color);
         width: 22px;
         position: absolute;
         left: 0.8rem;
         top: 1rem;
+        transition: all 0.3s ease-out;
     }
 
-    .has-submenu::after {
+    .hamburger-button:hover {
+        /* transform: scale(1.2); */
+        fill: var(--burger-menu-hover-color);
+    }
+
+    /* .has-submenu::after {
         padding-left: 0.5rem;
         color: #ecf0f1;
-        content: "▾";
+        content: "";
         z-index: 10;
+    } */
+
+    .has-submenu {
+        display: none !important;
+    }
+
+    .header-nav-links {
+        border-bottom: 1px solid var(--mobile-menu-links-border-color);
     }
 
     li {
-        border-top: 1px solid hsl(0, 1%, 28%);
         width: 100%;
     }
 
     .submenu__skills,
     .submenu__projects {
+        display: block;
         position: relative;
         left: 0;
-        background-color: rgb(55, 54, 63);
+        background-color: var(--dark-grey-color);
     }
 
     .submenu__skills-front,
     .submenu__skills-back {
+        display: block;
         position: relative;
-        background-color: rgb(55, 54, 63);
+        background-color: var(--dark-grey-color);
         left: 0;
     }
 }
