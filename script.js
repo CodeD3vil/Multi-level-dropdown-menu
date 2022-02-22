@@ -21,8 +21,8 @@ const mobileNavigationOff = function () {
 //slide mobile navigation away when clicked on webpage section(outside the navigation, not including the header)
 //slide mobile navigation away after clicking on nvigation links
 for (let i = 0; i < sections.length; i++) {
-    sections[i].addEventListener("touchstart", mobileNavigationOff);
+    sections[i].addEventListener("click", mobileNavigationOff);
     for (let i = 0; i < navigationLinks.length; i++) {
-        navigationLinks[i].addEventListener("touchstart", mobileNavigationOff);
+        navigationLinks[i].addEventListener("click", mobileNavigationOff);
     }
 }
