@@ -2,10 +2,12 @@
 :root {
     --background-color: #ecf0f1;
     --dark-grey-color: #23232b;
-    --text-color: #fff;
+    --dark-grey-medium-color: #1a1a28;
+    --text-color: #cccbcb;
+    --text-color-hover: #adadad;
     --link-hover-color: #f34949;
-    --burger-menu-hover-color: #cccbcb;
-    --mobile-menu-links-border-color: rgba(111, 111, 112, 0.281);
+    --burger-menu-hover-color: #ffffff;
+    --mobile-menu-links-border-color: rgba(111, 111, 112, 0.2);
 }
 
 html,
@@ -167,6 +169,7 @@ nav {
     }
 }
 
+/* //////////////////////////////////////////////////////////// */
 /* MEDIA QUERY MOBILE MENU */
 
 @media (max-width: 770px) {
@@ -184,8 +187,8 @@ nav {
     }
 
     .menu a:hover {
-        color: var(--text-color);
-        background-color: var(--link-hover-color);
+        color: var(--text-color-hover);
+        background-color: var(--dark-grey-color);
     }
 
     .logo {
@@ -195,14 +198,31 @@ nav {
     nav .menu {
         width: 100%;
         position: absolute;
-        background-color: var(--dark-grey-color);
+        background-color: var(--dark-grey-medium-color);
         right: 0;
-        top: 99%;
+        top: 100%;
         left: 0%;
         height: 1000%;
         transform: translateX(100%);
         transition: all 0.4s ease-out;
     }
+
+    .menu ul,
+    li,
+    a {
+        width: 100%;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu a {
+        border-bottom: 1px solid var(--mobile-menu-links-border-color);
+        background-color: var(--dark-grey-medium-color);
+        padding-right: 1.7rem;
+    }
+
+    /* .menu  */
 
     /* if the data-visible attribute is true the menu will become visible by moving into the view */
     .menu[data-visible="true"] {
@@ -237,57 +257,22 @@ nav {
         fill: var(--burger-menu-hover-color);
     }
 
-    /* .has-submenu::after {
-        padding-left: 0.5rem;
-        color: #ecf0f1;
-        content: "";
-        z-index: 10;
-    } */
-
     /* no submenu in mobile menu */
     .has-submenu {
         display: none !important;
     }
-
-    .header-nav-links {
-        border-bottom: 1px solid var(--mobile-menu-links-border-color);
-    }
-
-    li {
-        width: 100%;
-    }
-
-    /* mobile menu centered */
-    a {
-        text-align: center;
-    }
-
-    /* mobile menu centered */
-    .submenu__skills a {
-        position: relative;
-        left: -27.2%;
-        text-align: center;
-    }
-    .submenu__projects a {
-        position: relative;
-        left: -16.5%;
-        text-align: center;
-    }
-    /* mobile menu centered */
 
     .submenu__skills,
     .submenu__projects {
         display: block;
         position: relative;
         left: 0;
-        background-color: var(--dark-grey-color);
     }
 
     .submenu__skills-front,
     .submenu__skills-back {
         display: block;
         position: relative;
-        background-color: var(--dark-grey-color);
         left: 0;
     }
 
